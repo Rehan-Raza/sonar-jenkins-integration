@@ -6,7 +6,9 @@ pipeline {
             agent any
             steps {
               withSonarQubeEnv('SonarQube_server') {
-                sh 'mvn clean package sonar:sonar'
+              sh" ${SCANNER_HOME**}**}/bin/sonar-scanner \
+              -Dsonar.projectKey=raza.jenkins.project \
+              -Dsonar.sources=. "
               }
             }
           }
